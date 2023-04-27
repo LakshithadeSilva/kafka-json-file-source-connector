@@ -1,0 +1,23 @@
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# VSCode
+.vscode/
+
+# Maven
+target/
+lib/
+dependency-reduced-pom.xml
+MANIFEST.MF
+
+# Misc
+.DS_Store
+
