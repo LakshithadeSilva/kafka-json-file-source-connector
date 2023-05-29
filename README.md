@@ -84,6 +84,22 @@ be able to watch a given directory and read existing and new files within this d
 - Uses a hard-coded schema. This should be changed to read schemas from the Schema Registry.
 - Publishes events to a single Kafka topic.
 
+### Building the Connector
+This is a Maven project, therefore the connector JAR can be easily built with the standard Maven commands.
+The Maven `pom.xml` file is also configured with a [Maven Docker plugin](https://dmp.fabric8.io/) for
+building the custom Kafka Connect container image together with the connector JAR. The image is built using
+the `src/main/docker/Dockerfile` Dockerfile.
+
+To build just the connector JAR (i.e. without producing the container image), run:
+```shell
+mvn clean package
+```
+
+To build the custom Kafka Connect container add `docker:build` to the Maven command line.
+```shell
+mvn clean package docker:build
+```
+
 ## Deploying the Connector with Kafka Connect
 To deploy this connector correctly, both Kafka Connect and the connector itself have to be configured.
 How we configure these vary between standalone and distributed deployments. However, we assume a Kafka
